@@ -1,0 +1,113 @@
+<mvc:View controllerName="com.ndbs.reusecomponentui.controller.Homepage"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <VBox id="vbReuseCustomer">
+        <Table id="tblReuseCustomer"
+            items="{northwind>/Customers}"
+            itemPress="onCustomerSelected"
+            growing="true"
+            growingThreshold="10">
+            <columns>
+                <Column>
+                    <Label text="Customer ID" />
+                </Column>
+                <Column>
+                    <Label text="Company Name" />
+                </Column>
+                <Column>
+                    <Label text="Country" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem type="Active">
+                    <Text text="{northwind>CustomerID}" />
+                    <Text text="{northwind>CompanyName}" />
+                    <Text text="{northwind>Country}" />
+                </ColumnListItem>
+            </items>
+        </Table>
+        <f:SimpleForm id="sfReuseCustomerDetails"
+            editable="{= ${componentModel>/uiMode} !== 'Display'}"
+            layout="ResponsiveGridLayout"
+            title="Customer Details"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsXL="1"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false">
+            <f:toolbar>
+                <Toolbar id="tbReuseCustomerDetails">
+                    <ToolbarSpacer />
+                    <Button id="btnReuseCustDetailEdit"
+                        press="onSwitchEditDisplayMode"
+                        icon="{= ${componentModel>/uiMode} === 'Display' ? 'sap-icon://edit' : 'sap-icon://display'}"/>
+                </Toolbar>
+            </f:toolbar>
+            <Label id="lblReuseCustomerID"
+                text="Customer ID" />
+            <Input id="inpReuseCustomerID"
+                value="{viewModel>/CustomerID}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseCompanyName"
+                text="Company Name" />
+            <Input id="inpReuseCompanyName"
+                value="{viewModel>/CompanyName}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseContactName"
+                text="Contact Name" />
+            <Input id="inpReuseContactName"
+                value="{viewModel>/ContactName}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseContactTitle"
+                text="Contact Title" />
+            <Input id="inpReuseContactTitle"
+                value="{viewModel>/ContactTitle}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseAddress"
+                text="Address" />
+            <Input id="inpReuseAddress"
+                value="{viewModel>/Address}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseCity"
+                text="City" />
+            <Input id="inpReuseCity"
+                value="{viewModel>/City}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseRegion"
+                text="Region" />
+            <Input id="inpReuseRegion"
+                value="{viewModel>/Region}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReusePostalCode"
+                text="Postal Code" />
+            <Input id="inpReusePostalCode"
+                value="{viewModel>/PostalCode}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseCountry"
+                text="Country" />
+            <Input id="inpReuseCountry"
+                value="{viewModel>/Country}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReusePhone"
+                text="Phone" />
+            <Input id="inpReusePhone"
+                value="{viewModel>/Phone}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+            <Label id="lblReuseFax"
+                text="Fax" />
+            <Input id="inpReuseFax"
+                value="{viewModel>/Fax}"
+                editable="{= ${componentModel>/uiMode} !== 'Display'}"/>
+        </f:SimpleForm>
+    </VBox>
+</mvc:View>
